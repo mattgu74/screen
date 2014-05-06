@@ -11,8 +11,8 @@
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section data-autoslide="2000">
+			<div class="slides" >
+				<section data-autoslide="2000" data-background="img/fond.jpg">
 					<h1>La Jolie Douche</h1>
 					<p>
 						<img src="img/lajoliedouche.jpg" />
@@ -20,28 +20,35 @@
 					<h3>Welcome to the PIC 1800 !</h3>
 				</section>
 
-				<section data-background="#007777">
+				<section data-background="img/fond.jpg">
 					<div style="top:-300px; position:absolute; "><h2>Twitter, hashtag #PicassoUTC</h2></div>
-					<section data-autoslide="1500">
-						<h1>Twitter !</h1>
-						<p>Envoyez vos messages avec le hashtag #PicassoUTC</p>
+					<section data-autoslide="3000" data-background="img/fond.jpg">
+						<p>Envoyez vos messages avec le hashtag #PicassoUTC, voici les 10 derniers messages !</p>
 					</section>
-					<section data-autoslide="1500">
+					<section data-autoslide="3000">
 						<p>
 							@mattgu74: C'est trop FAT à la #FolieDouche au #PicassoUTC ! Envoyez la peuf !
 						</p>
 					</section>
-					<section data-autoslide="1500">
+					<section data-autoslide="3000">
 						<p>
 							@Jonas: Oép @mattgu74 t'a trop raison ça envoie du lourd au #PicassoUTC avec la #FolieDouche !
 						</p>
 					</section>
+				</section>
+
+				<section data-background="img/fond.jpg" data-state="everest">
+					<h3>Objectif Mont-Everest !</h3>
+					<div id="everest_back" style="background-color: #0F0; height: 600px; width: 600px; margin-right:auto; margin-left: auto;">
+						<div id="everest_front" style="background-color: #F00; height: 600px; margin-right:auto; margin-left: auto;"></div>
+					</div>
 				</section>
 			</div>
 
 		</div>
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script>
 
 			// Full list of configuration options available here:
@@ -70,6 +77,11 @@
 					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
 			});
+			Reveal.addEventListener( 'everest', function() {
+			    $("#everest_front").height("600px");
+			    setTimeout(function() { $("#everest_front").animate({height: "50%", easing: "ease-in"}, 3000); }, 1000);
+			    console.log("here");
+			}, false );
 		</script>
 	</body>
 </html>
