@@ -4,10 +4,16 @@
 		<meta charset="utf-8">
 		<title>ScreenUTC</title>
 		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
 	</head>
 	<body>
 
+		<div style="width: 100%; height: 100%; display: none; z-index: 10000; position: absolute;" id="overeverest">
+			<div style="width: 100%; height: 100%; z-index: 10001; position: absolute;"><img src="img/fond-everest.png" /></div>
+			<div id="everest_back" style="background-color: #0F0; margin-top:165px; height: 660px; width: 100%; margin-right:auto; margin-left: auto;">
+				<div id="everest_front" style="background-color: #F00; height: 100%; margin-right:auto; margin-left: auto;"></div>
+			</div>
+		</div>
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
@@ -37,11 +43,7 @@
 					</section>
 				</section>
 
-				<section data-background="img/fond.jpg" data-state="everest">
-					<h3>Objectif Mont-Everest !</h3>
-					<div id="everest_back" style="background-color: #0F0; height: 600px; width: 600px; margin-right:auto; margin-left: auto;">
-						<div id="everest_front" style="background-color: #F00; height: 600px; margin-right:auto; margin-left: auto;"></div>
-					</div>
+				<section data-autoslide="10000">
 				</section>
 			</div>
 
@@ -77,11 +79,18 @@
 					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
 			});
-			Reveal.addEventListener( 'everest', function() {
-			    $("#everest_front").height("600px");
-			    setTimeout(function() { $("#everest_front").animate({height: "50%", easing: "ease-in"}, 3000); }, 1000);
-			    console.log("here");
-			}, false );
+
+			Reveal.addEventListener( 'slidechanged', function( event ) {
+				if(event.indexh == 2) {
+					$("#overeverest").show();
+				    $("#everest_front").height("100%");
+				    setTimeout(function() { $("#everest_front").animate({height: "50%", easing: "ease-in"}, 3000); }, 1500);
+				}
+
+				if(event.indexh == 3 || event.indexh == 0) {
+			    	$("#overeverest").hide();
+				}
+			} );
 		</script>
 	</body>
 </html>
