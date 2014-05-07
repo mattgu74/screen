@@ -86,9 +86,13 @@
 				$("#login").text(tweet.user.screen_name);
 				$("#texte").text(tweet.text);
 				$("#profile").attr("src", tweet.user.profile_image_url);
-				console.log(tweet);
-				
-				$("#twittimage").hide();
+				console.log(tweet.entities);
+				if(tweet.entities.media.length > 0) {
+				    $("#twittimage").attr("src", tweet.entities.media[0].media_url);
+				    $("#twittimage").show();
+				} else {
+				    $("#twittimage").hide();
+				}
 				console.log(tweet);
 				setTimeout(read_tweet, 4000);
 			}
