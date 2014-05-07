@@ -98,6 +98,7 @@
 				*/]
 			});
 			var val, payutc, tweets;
+			var c = 1567;
 
 			function read_tweet() {
 				if(tweets.length == 0) { Reveal.next(); return; }
@@ -119,7 +120,7 @@
 			Reveal.addEventListener( 'slidechanged', function( event ) {
 				if(event.indexh == 1 && event.indexv == 0) {
 					tweets = [];
-					$.get("twitter.php", function( data ) {
+					$.get("twitter.php?c="+c, function( data ) {
 					   for(var i=data.statuses.length-1; i>=0; i--) {
 					   		tweets.push(data.statuses[i]);
 					   }
@@ -129,7 +130,7 @@
 					   }, 1500);
 					}, "json");
 
-					$.get( "payutc.php", function( data ) {
+					$.get( "payutc.php?c="+c, function( data ) {
 					   payutc = data;
 					   console.log(payutc);
 					   val=parseInt(payutc.total);
@@ -151,6 +152,7 @@
 					     $("#rk_v"+(i+1)).text(table[i][1]);
 					   }
 					}, "json");
+					c+=1:
 				}
 
 				if(event.indexh == 2) {
