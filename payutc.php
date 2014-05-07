@@ -12,7 +12,7 @@ header("Pragma: no-cache");
 
 session_start();
 
-$debut = "2014-05-06 18:30";
+$debut = "2014-05-07 17:30";
 
 if(!isset($_SESSION['payutc_cookie'])) {
 	// Cookie pas défini => login app
