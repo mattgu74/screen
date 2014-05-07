@@ -27,7 +27,7 @@ try {
 	$total = $payutcClient->getRevenue(array("fun_id" => 2, "start"=> $debut));
 }
 
-return json_encode(array(
+echo json_encode(array(
     "total" => $total,
     "GI" => $payutcClient->getNbSell(array("fun_id" => 2, "start"=> $debut, "obj_id" => "1702")),
     "TC" => $payutcClient->getNbSell(array("fun_id" => 2, "start"=> $debut, "obj_id" => "1703")),
