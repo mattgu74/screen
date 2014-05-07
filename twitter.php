@@ -10,7 +10,7 @@ $settings = array(
 );
 
 $url = 'https://api.twitter.com/1.1/search/tweets.json';
-$getfield = '?q=%23PicassoUTC&result_type=recent&count=10';
+$getfield = '?q=%23PicassoUTC,%40picasso_utc&result_type=recent&count=10';
 $requestMethod = 'GET';
 
 $twitter = new TwitterAPIExchange($settings);
