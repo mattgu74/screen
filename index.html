@@ -23,7 +23,7 @@
 				<section data-autoslide="4500" data-background="img/fond.jpg">
 					<h3>Welcome to the PIC 1800 !</h3>
 					<p>
-						<video data-autoplay src="img/video1.mov" width="912px" height=""></video>
+						<video data-autoplay src="img/video1.mov"></video>
 					</p>
 				</section>
 
@@ -36,12 +36,13 @@
 					<p>
 					       <img id="profile" width="48px" height="48px" style="border: 0px;" />
 					       <span id="username"></span> (@<span id="login"></span>): <span id="texte"></span><br />
+					       <img id="twittimage" width="640px" height="480px" style="border: 0px;" />
 
 					</p>
 					</section>
 				</section>
 
-				<section></section>
+				<section  data-autoslide="10000"></section>
 			</div>
 
 		</div>
@@ -67,14 +68,14 @@
 				// parallaxBackgroundSize: '2100px 900px',
 
 				// Optional libraries used to extend on reveal.js
-				dependencies: [
+				dependencies: [/*
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
 					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
+				*/]
 			});
 			var val, tweets;
 
@@ -86,13 +87,16 @@
 				$("#texte").text(tweet.text);
 				$("#profile").attr("src", tweet.user.profile_image_url);
 				console.log(tweet);
+				
+				$("#twittimage").hide();
+				console.log(tweet);
 				setTimeout(read_tweet, 4000);
 			}
 
 			Reveal.addEventListener( 'slidechanged', function( event ) {
 				if(event.indexh == 1 && event.indexv == 0) {
 					tweets = [];
-					$.get( "twitter.php", function( data ) {
+					$.get("twitter.php", function( data ) {
 						console.log(data);
 					   for(var i=data.statuses.length-1; i>=0; i--) {
 					   		tweets.push(data.statuses[i]);
