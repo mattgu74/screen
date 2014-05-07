@@ -83,7 +83,7 @@
 					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 				*/]
 			});
-			var val, tweets;
+			var val, payutc, tweets;
 
 			function read_tweet() {
 				if(tweets.length == 0) { Reveal.next(); return; }
@@ -116,7 +116,9 @@
 					}, "json");
 
 					$.get( "payutc.php", function( data ) {
-					   val=parseInt(data);
+					   payutc = data;
+					   console.log(payutc);
+					   val=parseInt(payutc.total);
 					}, "json");
 				}
 
