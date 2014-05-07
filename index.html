@@ -16,9 +16,6 @@
 				<div id="everest_front" style="background-color: #83a4c3; height: 100%; margin-right:auto; margin-left: auto;"></div>
 			</div>
 		</div>
-		<div style="width: 100%; height: 100%; display: none; z-index: 10000;  position: absolute;" id="video_fullscreen">
-		    <video id="player" style="width: 100%; height: 100%;" src="img/video1.mov"></video>
-		</div>
 		
 		<div class="reveal">
 
@@ -99,18 +96,6 @@
 				*/]
 			});
 			var val, payutc, tweets;
-			
-			var videos = [
-			    "img/video1.mov",
-			    "img/video1.mov",
-			    "img/video1.mov"
-			];
-			
-			var videos_time = [
-			    1000, 2000, 3000   
-			];
-			
-			var video_count = 0;
 
 			function read_tweet() {
 				if(tweets.length == 0) { Reveal.next(); return; }
@@ -186,16 +171,8 @@
 					setTimeout(function() {
 					    // Fin du compteur
 					    $("#overeverest").hide();
-					    $("#video_fullscreen").show();
-					    $("#player").attr("src", videos[video_count]);
-					    var v = document.getElementById("player");
-					    v.play();
-					    setTimeout(function() {
-					        $("#video_fullscreen").hide();
-					        Reveal.next();
-					        video_count = (video_count + 1) % videos.length;
-					    }, videos_time[video_count]);
-					}, 4500);
+					    Reveal.next();
+					}, 6500);
 				}
 
 			});

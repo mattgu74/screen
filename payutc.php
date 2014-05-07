@@ -29,11 +29,8 @@ try {
 
 echo json_encode(array(
     "total" => $total,
-    "GI" => $payutcClient->getNbSell(array("fun_id" => 2, "start"=> $debut, "obj_id" => "1702")),
-    "TC" => $payutcClient->getNbSell(array("fun_id" => 2, "start"=> $debut, "obj_id" => "1703")),
-    "GSU" => $payutcClient->getNbSell(array("fun_id" => 2, "start"=> $debut, "obj_id" => "1704")),
-    "GM" => $payutcClient->getNbSell(array("fun_id" => 2, "start"=> $debut, "obj_id" => "1705")),
-    "GSM" => $payutcClient->getNbSell(array("fun_id" => 2, "start"=> $debut, "obj_id" => "1706")),
-    "GB" => $payutcClient->getNbSell(array("fun_id" => 2, "start"=> $debut, "obj_id" => "1707")),
-    "GP" => $payutcClient->getNbSell(array("fun_id" => 2, "start"=> $debut, "obj_id" => "1708"))
+    "TC" => $payutcClient->getNbSell(array("fun_id" => 2, "start"=> $debut, "obj_id" => "1702")),
+    "GX" => $payutcClient->getNbSell(array("fun_id" => 2, "start"=> $debut, "obj_id" => "1703")),
+    "VC" => $payutcClient->getNbSell(array("fun_id" => 2, "start"=> $debut, "obj_id" => "1704")),
+    "AN" => $payutcClient->getNbSell(array("fun_id" => 2, "start"=> $debut, "obj_id" => "1705")),
    ));
