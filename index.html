@@ -105,6 +105,12 @@
 			
 			var videos = [
 			    "img/video1.mov",
+			    "img/video1.mov",
+			    "img/video1.mov"
+			];
+			
+			var videos_time = [
+			    1000, 2000, 3000   
 			];
 			
 			var video_count = 0;
@@ -187,7 +193,14 @@
 					    // Fin du compteur
 					    $("#overeverest").hide();
 					    $("#video_fullscreen").show();
-					    var v = document.getElementsByiD("video")[0];
+					    $("#player").attr("src", videos[video_count]);
+					    var v = document.getElementById("player");
+					    v.play();
+					    setTimeout(function() {
+					        $("#video_fullscreen").hide();
+					        Reveal.next();
+					        video_count = (video_count + 1) % videos.length;
+					    }, videos_time[video_count]);
 					}, 4500);
 				}
 
