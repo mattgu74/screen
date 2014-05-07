@@ -2,6 +2,11 @@
 include_once 'config.inc.php';
 require_once('vendor/j7mbo/twitter-api-php/TwitterAPIExchange.php');
 
+header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); 
+header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT"); 
+header("Cache-Control: no-cache, must-revalidate"); 
+header("Pragma: no-cache"); 
+
 $settings = array(
     'oauth_access_token' => $_CONFIG['twitter_OAUTH_ACCESS_TOKEN'],
     'oauth_access_token_secret' => $_CONFIG['twitter_OAUTH_ACCESS_TOKEN_SECRET'],

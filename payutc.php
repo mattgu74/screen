@@ -5,6 +5,11 @@ use \Payutc\Client\AutoJsonClient;
 
 include_once 'config.inc.php';
 
+header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); 
+header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT"); 
+header("Cache-Control: no-cache, must-revalidate"); 
+header("Pragma: no-cache"); 
+
 session_start();
 
 $debut = "2014-05-06 18:30";
