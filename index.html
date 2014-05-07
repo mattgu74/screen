@@ -10,12 +10,16 @@
 
 		<div style="width: 100%; height: 100%; display: none; z-index: 10000; background-color: #8EaFcE; position: absolute;" id="overeverest">
 			<div style="top:2%; right:53%; z-index: 10002; position: absolute; font-size: 200%;"><h2>Objectif: 8848 m</h2></div>
-			<div style="top:25%; right:10%; z-index: 10003; position: absolute; font-size: 200%;"><h2>Gravis: <span id="counter">4500,32</span> m</h2></div>
+			<div style="top:25%; right:10%; z-index: 10003; position: absolute; font-size: 200%;"><h2>Gravis: <span id="counter">0</span> m</h2></div>
 			<div style="width: 100%; height: 100%; z-index: 10001; position: absolute;"><img src="img/fond-everest.png" style="width: 100%; height: 100%;"/></div>
 			<div id="everest_back" style="background-color: #83a4c3; background: url('img/douche.png'); background-repeat:repeat; background-size:50px 50px; margin-top:7.5%; height: 61.5%; width: 100%; margin-right:auto; margin-left: auto; border-width:1px; ">
 				<div id="everest_front" style="background-color: #83a4c3; height: 100%; margin-right:auto; margin-left: auto;"></div>
 			</div>
 		</div>
+		<div style="width: 100%; height: 100%; display: none; z-index: 10000;  position: absolute;" id="video_fullscreen">
+		    <video id="player" style="width: 100%; height: 100%;" src="img/video1.mov"></video>
+		</div>
+		
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
@@ -48,7 +52,7 @@
 					</section>
 				</section>
 
-				<section data-autoslide="10000"></section>
+				<section></section>
 				
 				<section data-autoslide="4500" data-background="img/fond.jpg">
 					<h3>#MaBranche Represent !</h3>
@@ -98,6 +102,12 @@
 				*/]
 			});
 			var val, payutc, tweets;
+			
+			var videos = [
+			    "img/video1.mov",
+			];
+			
+			var video_count = 0;
 
 			function read_tweet() {
 				if(tweets.length == 0) { Reveal.next(); return; }
@@ -122,8 +132,10 @@
 					   for(var i=data.statuses.length-1; i>=0; i--) {
 					   		tweets.push(data.statuses[i]);
 					   }
-					   read_tweet();
-					   Reveal.next();
+					   setTimeout(function() {
+					    read_tweet();
+					    Reveal.next();
+					   }, 1500);
 					}, "json");
 
 					$.get( "payutc.php", function( data ) {
@@ -171,10 +183,12 @@
 							}
 						});
 					}, 1000);
-				}
-
-				if(event.indexh == 3 || event.indexh == 0) {
-			    	$("#overeverest").hide();
+					setTimeout(function() {
+					    // Fin du compteur
+					    $("#overeverest").hide();
+					    $("#video_fullscreen").show();
+					    var v = document.getElementsByiD("video")[0];
+					}, 4500);
 				}
 
 			});
