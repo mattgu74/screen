@@ -28,17 +28,16 @@
 				</section>
 
 				<section data-background="img/fond.jpg">
-					<div style="top:-300px; position:absolute; "><h2>Twitter, hashtag #PicassoUTC</h2></div>
+					<div style="top:-380px; right: -200px; position:absolute; "><h2>Twitter, hashtag #PicassoUTC</h2></div>
 					<section data-autoslide="10000" data-background="img/fond.jpg">
 						<p>Envoyez vos messages avec le hashtag #PicassoUTC, voici les 10 derniers messages !</p>
 					</section>
-					<section>
-					<p>
+					<section style="height: 700px;">
+					<p style="margin-top:50px; margin-bottom:auto;>
 					       <img id="profile" width="48px" height="48px" style="border: 0px;" />
-					       <span id="username"></span> (@<span id="login"></span>): <span id="texte"></span><br />
-					       <img id="twittimage" width="640px" height="480px" style="border: 0px;" />
-
+					       <span id="username"></span> (@<span id="login"></span>): <span id="texte"></span>
 					</p>
+					<img id="twittimage" width="640px" height="480px" style="border: 0px; position:aboslute;" />
 					</section>
 				</section>
 
@@ -87,7 +86,7 @@
 				$("#texte").text(tweet.text);
 				$("#profile").attr("src", tweet.user.profile_image_url);
 				console.log(tweet.entities);
-				if(tweet.entities.media.length > 0) {
+				if(tweet.entities.media && tweet.entities.media.length > 0) {
 				    $("#twittimage").attr("src", tweet.entities.media[0].media_url);
 				    $("#twittimage").show();
 				} else {
