@@ -3,6 +3,7 @@
     "type": "project",
     "description": "Ecran stylé pour le pic !",
     "require": {
-        "payutc/php-client": "dev-master"
+        "payutc/php-client": "dev-master",
+        "j7mbo/twitter-api-php": "dev-master"
     }
 }

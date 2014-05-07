@@ -17,5 +17,11 @@ if(!isset($_SESSION['payutc_cookie'])) {
 	$payutcClient = new AutoJsonClient($_CONFIG['payutc_server'], "STATS", array(), "Payutc Json PHP Client", $_SESSION['payutc_cookie']);
 }
 
-echo json_encode($payutcClient->getRevenue(array("fun_id" => 2, "start"=> "2014-05-06 18:30")));
+try {
+	echo json_encode($payutcClient->getRevenue(array("fun_id" => 2, "start"=> "2014-05-06 18:30")));
+} catch(Exception $e) {
+	$payutcClient->loginApp(array("key" => $_CONFIG['payutc_key']));
+	$_SESSION['payutc_cookie'] = $payutcClient->cookie;
+	echo json_encode($payutcClient->getRevenue(array("fun_id" => 2, "start"=> "2014-05-06 18:30")));
+}
 
