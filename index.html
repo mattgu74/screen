@@ -110,10 +110,8 @@
 
 					$.get( "payutc.php?c="+c, function( data ) {
 					   payutc = data;
-					   console.log(payutc);
 					   val=parseInt(payutc.total);
-					   console.log(val);
-					});
+					}, "json");
 					c+=1;
 				}
 
