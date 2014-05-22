@@ -53,7 +53,7 @@
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				controls: false,
-				progress: true,
+				progress: false,
 				history: false,
 				center: true, 
 				loop: true,
@@ -75,7 +75,7 @@
 					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 				*/]
 			});
-			var val, payutc, tweets;
+			var val=0, payutc, tweets;
 			var c = 1567;
 
 			function read_tweet() {
@@ -110,7 +110,9 @@
 
 					$.get( "payutc.php?c="+c, function( data ) {
 					   payutc = data;
+					   console.log(payutc);
 					   val=parseInt(payutc.total);
+					   console.log(val);
 					});
 					c+=1;
 				}
