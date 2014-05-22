@@ -81,7 +81,7 @@
 			var c = 1567;
 
 			function read_tweet() {
-				if(tweets.length == 0) { Reveal.next(); return; }
+				if(tweets.length == 0) { Reveal.slide(0); return; }
 				var tweet = tweets.splice(0,1)[0];
 				$("#username").text(tweet.user.name);
 				$("#login").text(tweet.user.screen_name);
@@ -106,14 +106,14 @@
 					   }
 					   setTimeout(function() {
 					    read_tweet();
-					    Reveal.slide(0);
+					    Reveal.next();
 					   }, 1500);
 					}, "json");
 
-					$.get( "payutc.php?c="+c, function( data ) {
+					/*$.get( "payutc.php?c="+c, function( data ) {
 					   payutc = data;
 					   val=parseInt(payutc.total);
-					}, "json");
+					}, "json");*/
 					c+=1;
 				}
 
