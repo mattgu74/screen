@@ -37,10 +37,12 @@
 					</div>
 					</section>
 				</section>
+				<!--
 				<section>
 					<h2>Compteur !</h2>
 					<span id="counter"></span> €
 				</section>
+				-->
 			</div>
 
 		</div>
@@ -104,7 +106,7 @@
 					   }
 					   setTimeout(function() {
 					    read_tweet();
-					    Reveal.next();
+					    Reveal.slide(0);
 					   }, 1500);
 					}, "json");
 
@@ -115,7 +117,7 @@
 					c+=1;
 				}
 
-				if(event.indexh == 2) {
+				/*if(event.indexh == 2) {
 				    $('#counter').text(Math.ceil(0)/100);
 				    setTimeout(function() { 
 						jQuery({someValue: 0}).animate({someValue: val}, {
@@ -133,7 +135,7 @@
 					setTimeout(function() {
 					    Reveal.slide(0);
 					}, 8500);
-				}
+				}*/
 
 			});
 		</script>
