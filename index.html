@@ -144,16 +144,11 @@
 					setTimeout(function() {
 					    // Fin du compteur
 					    $("#overeverest").hide();
-					    Reveal.next();
+					    Reveal.slide(0);
 					}, 8500);
 				}
 
 			});
-
-			// Petit bug au premier affichage de la première slide, l'autoplay de reveal marche pas...
-			// Du coup on le fait a la main.
-			var v = document.getElementsByTagName("video")[0];
-			v.play();
 		</script>
 	</body>
 </html>
