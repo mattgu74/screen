@@ -12,7 +12,7 @@ header("Pragma: no-cache");
 
 session_start();
 
-$debut = "2014-05-07 17:30";
+$debut = "2014-05-22 17:30";
 
 if(!isset($_SESSION['payutc_cookie'])) {
 	// Cookie pas défini => login app
@@ -33,9 +33,9 @@ try {
 }
 
 echo json_encode(array(
-    "total" => $total,
-    "TC" => $payutcClient->getNbSell(array("fun_id" => 2, "start"=> $debut, "obj_id" => "1702")),
+    "total" => $total
+    /*"TC" => $payutcClient->getNbSell(array("fun_id" => 2, "start"=> $debut, "obj_id" => "1702")),
     "GX" => $payutcClient->getNbSell(array("fun_id" => 2, "start"=> $debut, "obj_id" => "1703")),
     "VC" => $payutcClient->getNbSell(array("fun_id" => 2, "start"=> $debut, "obj_id" => "1704")),
-    "AN" => $payutcClient->getNbSell(array("fun_id" => 2, "start"=> $debut, "obj_id" => "1705")),
+    "AN" => $payutcClient->getNbSell(array("fun_id" => 2, "start"=> $debut, "obj_id" => "1705")),*/
    ));
