@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="css/theme/moon.css" id="theme">
 	</head>
 	<body>
+		<div style="position:absolute; top:30px; left:30px;"><img src="img/LogoPic_P14_rouge.png" alt="Picasso Logo" style="height:150px; width:150px;"></div>
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
@@ -16,6 +17,7 @@
 				</section>
 
 				<section>
+
 					<div style="top:-380px; right: -150px; position:absolute; "><h2>Twitter, hashtag #PicassoUTC</h2></div>
 					<section data-autoslide="10000">
 						<p>Envoyez vos messages avec le hashtag #PicassoUTC, voici les 10 derniers messages !</p>
@@ -37,12 +39,10 @@
 					</div>
 					</section>
 				</section>
-				<!--
 				<section>
 					<h2>Compteur !</h2>
 					<span id="counter"></span> €
 				</section>
-				-->
 			</div>
 
 		</div>
@@ -81,7 +81,7 @@
 			var c = 1567;
 
 			function read_tweet() {
-				if(tweets.length == 0) { Reveal.slide(0); return; }
+				if(tweets.length == 0) { Reveal.next(); return; }
 				var tweet = tweets.splice(0,1)[0];
 				$("#username").text(tweet.user.name);
 				$("#login").text(tweet.user.screen_name);
@@ -110,14 +110,14 @@
 					   }, 1500);
 					}, "json");
 
-					/*$.get( "payutc.php?c="+c, function( data ) {
+					$.get( "payutc.php?c="+c, function( data ) {
 					   payutc = data;
 					   val=parseInt(payutc.total);
-					}, "json");*/
+					}, "json");
 					c+=1;
 				}
 
-				/*if(event.indexh == 2) {
+				if(event.indexh == 2) {
 				    $('#counter').text(Math.ceil(0)/100);
 				    setTimeout(function() { 
 						jQuery({someValue: 0}).animate({someValue: val}, {
@@ -135,7 +135,7 @@
 					setTimeout(function() {
 					    Reveal.slide(0);
 					}, 8500);
-				}*/
+				}
 
 			});
 		</script>
