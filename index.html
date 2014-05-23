@@ -41,7 +41,7 @@
 				</section>
 				<section>
 					<h2>Compteur !</h2>
-					<span id="counter"></span> €
+					<h3><span id="counter"></span> L</h3>
 				</section>
 			</div>
 
@@ -112,13 +112,13 @@
 
 					$.get( "payutc.php?c="+c, function( data ) {
 					   payutc = data;
-					   val=parseInt(payutc.total);
+					   val=parseInt(payutc.total) / 2 * 0.38;
 					}, "json");
 					c+=1;
 				}
 
 				if(event.indexh == 2) {
-				    $('#counter').text(Math.ceil(0)/100);
+				    $('#counter').text(0/100);
 				    setTimeout(function() { 
 						jQuery({someValue: 0}).animate({someValue: val}, {
 							duration: 5000,
