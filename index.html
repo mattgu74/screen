@@ -39,10 +39,6 @@
 					</div>
 					</section>
 				</section>
-				<section>
-					<h2>Compteur !</h2>
-					<h3><span id="counter"></span> L</h3>
-				</section>
 			</div>
 
 		</div>
@@ -81,7 +77,7 @@
 			var c = 1567;
 
 			function read_tweet() {
-				if(tweets.length == 0) { Reveal.next(); return; }
+				if(tweets.length == 0) { Reveal.slide(0); return; }
 				var tweet = tweets.splice(0,1)[0];
 				$("#username").text(tweet.user.name);
 				$("#login").text(tweet.user.screen_name);
@@ -110,31 +106,13 @@
 					   }, 1500);
 					}, "json");
 
+					/*
 					$.get( "payutc.php?c="+c, function( data ) {
 					   payutc = data;
 					   val=parseInt(payutc.total) / 2 * 0.32;
 					}, "json");
+					*/
 					c+=1;
-				}
-
-				if(event.indexh == 2) {
-				    $('#counter').text(0/100);
-				    setTimeout(function() { 
-						jQuery({someValue: 0}).animate({someValue: val}, {
-							duration: 5000,
-							easing:'swing', // can be anything
-							step: function() { // called on every step
-								// Update the element's text with rounded-up value:
-								$('#counter').text(Math.ceil(this.someValue)/100);
-							},
-							complete: function() {
-								$('#counter').text(Math.ceil(val)/100);
-							}
-						});
-					}, 1000);
-					setTimeout(function() {
-					    Reveal.slide(0);
-					}, 11000);
 				}
 
 			});
